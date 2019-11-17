@@ -1,0 +1,9 @@
+
+<div id="product-list-wrapper">
+    <div *ngIf="!products" id="product-list-loading">
+        loading
+    </div>
+    <div *ngIf="products" id="product-list">
+        <app-product-thumbnail *ngFor="let product of products" [product]="product"></app-product-thumbnail>
+    </div>
+</div>

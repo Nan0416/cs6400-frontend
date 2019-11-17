@@ -1,0 +1,53 @@
+
+<div id="login-signup">
+    <div *ngIf="isLoginPage" class="container">
+        <div class="prompt">
+            <label>Username</label>
+        </div>
+        <div class="input-field">
+            <input [(ngModel)]="username">
+        </div>
+        <div class="prompt">
+            <label>Password</label>
+        </div>
+        <div class="input-field">
+            <input type="password" [(ngModel)]="password">
+        </div>
+        <div *ngIf="login_error" class="error-msg">
+            <p>{{login_error}}</p>
+        </div>
+        <div class="btn-div">
+            <button id="login-btn" (click)="login()">Login</button>
+        </div>
+        <div class="prompt" id="signup-prompt">
+            <label>Want to try our website?</label> <button id="signup-btn" (click)="gotoSignup()">Signup</button>
+        </div>
+    </div>
+
+    <div *ngIf="!isLoginPage" class="container">
+        <div class="prompt">
+            <label>Username</label>
+        </div>
+        <div class="input-field">
+            <input [(ngModel)]="username">
+        </div>
+        <div class="prompt">
+            <label>Password</label>
+        </div>
+        <div class="input-field">
+            <input type="password" [(ngModel)]="password_1">
+        </div>
+        <div class="prompt">
+            <label>Verify password</label>
+        </div>
+        <div class="input-field">
+            <input type="password" [(ngModel)]="password_2">
+        </div>
+        <div *ngIf="signup_error" class="error-msg">
+            <p>{{signup_error}}</p>
+        </div>
+        <div class="btn-div">
+            <button id="register-btn" (click)="signup()">Register</button>
+        </div>
+    </div>
+</div>
