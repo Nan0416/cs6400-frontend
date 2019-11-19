@@ -2,10 +2,10 @@
 <div id="login-signup">
     <div *ngIf="isLoginPage" class="container">
         <div class="prompt">
-            <label>Username</label>
+            <label>Email</label>
         </div>
         <div class="input-field">
-            <input [(ngModel)]="username">
+            <input [(ngModel)]="id">
         </div>
         <div class="prompt">
             <label>Password</label>
@@ -26,10 +26,10 @@
 
     <div *ngIf="!isLoginPage" class="container">
         <div class="prompt">
-            <label>Username</label>
+            <label>Email</label>
         </div>
         <div class="input-field">
-            <input [(ngModel)]="username">
+            <input [(ngModel)]="id">
         </div>
         <div class="prompt">
             <label>Password</label>

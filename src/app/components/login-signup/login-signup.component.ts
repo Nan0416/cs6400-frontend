@@ -15,11 +15,14 @@ export class LoginSignupComponent implements OnInit {
     private router: Router
   ) { 
     userAccountService.userMount$.subscribe({
-      complete: ()=>{
-        // back to main
+      next: _ =>{
+        this.login_error = null;
+        this.signup_error = null;
         this.router.navigateByUrl("/");
-      },
-      error: (err)=>{
+      }
+    });
+    userAccountService.errorMount$.subscribe({
+      next: (err)=>{
         if(this.isLoginPage){
           this.login_error = err.message;
         }else{
@@ -30,7 +33,7 @@ export class LoginSignupComponent implements OnInit {
   }
   
   isLoginPage:boolean = true;
-  username:string = ""; // username or email address;
+  id:string = ""; // username or email address;
   password: string = ""; // password
   login_error: string = null;
 
@@ -42,13 +45,17 @@ export class LoginSignupComponent implements OnInit {
   ngOnInit() {
   }
   login(){
-    this.userAccountService.login(this.username, this.password);
+    this.userAccountService.login(this.id, this.password);
   }
   gotoSignup(){
-    this.username = "";
+    this.id = "";
     this.isLoginPage = false;
   }
   signup(){
-    this.userAccountService.signup(this.username, this.password_1);
+    if(this.password_1 != this.password_2){
+      this.signup_error = "different password."
+      return;
+    }
+    this.userAccountService.signup(this.id, this.id, this.password_1);
   }
 }

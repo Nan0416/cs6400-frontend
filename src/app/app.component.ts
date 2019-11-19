@@ -13,8 +13,9 @@ export class AppComponent implements OnInit{
     private userAccount: UserAccountService
   ) { 
     this.userAccount.userMount$.subscribe({
-      complete: ()=>{
+      next: ()=>{
         this.username = this.userAccount.user.username;
+        console.log(this.username);
       }
     });
   }
