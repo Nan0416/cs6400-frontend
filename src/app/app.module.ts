@@ -10,6 +10,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
+import { ProductSearchComponent } from './components/product-search/product-search.component';
+import { ProductSearchDialogComponent } from './components/product-search-dialog/product-search-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ProductThumbnailComponent } from './components/product-thumbnail/produc
     ProductListComponent,
     NotFoundComponent,
     LoginSignupComponent,
-    ProductThumbnailComponent
+    ProductThumbnailComponent,
+    ProductSearchComponent,
+    ProductSearchDialogComponent
   ],
   imports: [
     BrowserModule,

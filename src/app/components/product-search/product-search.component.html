@@ -1,0 +1,12 @@
+
+<div id="search-input-div">
+    <input type="text" id="search" name="search" [placeholder]='search_text' #box (keyup.enter)="searchProducts(box.value)">
+</div>
+
+<app-product-list [products]="products"></app-product-list>
+
+<div id="page-nav">
+    <div class="pagination">
+        <button (click)="loadMore()">Load More</button>
+    </div>
+</div>

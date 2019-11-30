@@ -8,7 +8,6 @@ $footer-text-height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     border-bottom: 1px solid rgba(100, 100, 100, 0.28);
     .header-text{
         display: inline-block;
@@ -17,18 +16,22 @@ $footer-text-height: 50px;
     }
     #logo{
         height: $header-height;
-        background-color: rgba(1, 255, 255, 0.28);
+        // background-color: rgba(1, 255, 255, 0.28);
         a{
             width: 200px;
+            text-decoration: none;
+            color: black;
         }
     }
     #welcome, #login{
         height: $header-height;
-        background-color: rgba(1, 255, 255, 0.28);
+        // background-color: rgba(1, 255, 255, 0.28);
     }
     #login{
         span, a{
             width: 150px;
+            text-decoration: none;
+            color:black;
         }
     }
     #welcome{
@@ -50,7 +53,7 @@ $footer-text-height: 50px;
     flex-direction: column;
 
     .footer-text-block .footer-text{
-        background-color:rgba(1, 255, 255, 0.28);
+        // background-color:rgba(1, 255, 255, 0.28);
         display: inline-block;
         height: $footer-text-height;
         line-height: $footer-text-height;
