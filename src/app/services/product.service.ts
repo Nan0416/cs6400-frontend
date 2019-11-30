@@ -27,7 +27,7 @@ export class ProductService {
     this.productsEvt_.next();
   }
   __notifyProductsError(err: CustomizedError){
-    this.productsErrorEvt_.error(err);
+    this.productsErrorEvt_.next(err);
   }
 
   

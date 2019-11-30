@@ -1,3 +1,13 @@
 <div class="product-overview">
-    <img [src]='product.image_urls[0]' width="200" height="200">
+    <div class="product-image" (mouseenter) ="mouseEnter()" (mouseleave)="mouseLeave()">
+        <img [src]='product_image' height="60%">
+        <p>{{has_more}}</p>
+    </div>
+    <div class="product-description">
+        <p class="title"><span>{{product.title}}</span> <button (click)="liked()">Like</button></p>
+        <p style="font-size: 14px;"><span class="emp">Brand</span> {{product.brand}}</p>
+        <p style="font-size: 14px;"><span class="emp">Category</span> {{product.main_cat}}</p>
+        <p class="emp">Description</p>
+        <p style="color:rgb(50,50,50); font-size: 14px;">{{product.description}}</p>
+    </div>
 </div>
