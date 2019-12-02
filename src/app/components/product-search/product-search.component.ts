@@ -88,8 +88,8 @@ export class ProductSearchComponent implements OnInit {
 
   recommend(){
     let liked_product_asin_set = this.likedProductService.liked_product_asin;
-    if(liked_product_asin_set.size < 5){
-      alert("Please select at least 5 product");
+    if(liked_product_asin_set.size < 10){
+      alert("Please select at least 10 products.");
       return;
     }
     if(this.userAccount.user == null){
