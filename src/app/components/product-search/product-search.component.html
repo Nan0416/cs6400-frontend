@@ -6,7 +6,7 @@
     <input type="text" id="search" name="search" [placeholder]='search_text' #box (keyup.enter)="searchProducts(box.value)">
 </div>
 
-<app-product-list [products]="products"></app-product-list>
+<app-product-list [products]="products" [like-button]="true"></app-product-list>
 
 <div id="page-nav">
     <div class="pagination">

@@ -4,6 +4,6 @@
         loading...
     </div>
     <div *ngIf="products" id="product-list">
-        <app-product-thumbnail *ngFor="let product of products" [product]="product"></app-product-thumbnail>
+        <app-product-thumbnail *ngFor="let product of products" [product]="product" [like-button]="like_button"></app-product-thumbnail>
     </div>
 </div>

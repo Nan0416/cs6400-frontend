@@ -12,6 +12,7 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
 import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { ProductSearchDialogComponent } from './components/product-search-dialog/product-search-dialog.component';
+import { ProductRecommendationResultComponent } from './components/product-recommendation-result/product-recommendation-result.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductSearchDialogComponent } from './components/product-search-dialog
     LoginSignupComponent,
     ProductThumbnailComponent,
     ProductSearchComponent,
-    ProductSearchDialogComponent
+    ProductSearchDialogComponent,
+    ProductRecommendationResultComponent
   ],
   imports: [
     BrowserModule,

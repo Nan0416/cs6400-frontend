@@ -1,0 +1,7 @@
+<div *ngIf="is_loading">
+    <div class="loader">
+    </div>
+</div>
+<div *ngIf="!is_loading">
+    <app-product-list [products]="products" [like-button]="false"></app-product-list>
+</div>

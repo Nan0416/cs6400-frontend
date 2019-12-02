@@ -26,6 +26,9 @@ export class ProductThumbnailComponent implements OnInit {
     return url.split("._SS40_").join("");
   }
 
+  @Input("like-button")
+  show_like_button: boolean;
+  
   @Input("product")
   set _product(product: Product){
     

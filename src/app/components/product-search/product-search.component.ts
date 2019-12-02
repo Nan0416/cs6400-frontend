@@ -58,7 +58,6 @@ export class ProductSearchComponent implements OnInit {
         for(let i = this.request.old_cursor ; i < this.request.cursor; i++){
           this.products.push(productMap.get(this.request.asins[i]));
         }
-        console.log(this.request.cursor)
       }
     });
 
@@ -69,14 +68,14 @@ export class ProductSearchComponent implements OnInit {
         }
     });
     this.likedProductService.likeProducts$.subscribe({
-      next: ()=>{
-        this.router.navigateByUrl("/recommendation/result");
+      next: (session_id: string)=>{
+        this.router.navigateByUrl(`/recommendation/result/${session_id}`);
+        // this.router.navigate(['/recommendation/result', {sessionid: session_id}]);
       }
     });
   }
 
   init(){
-    console.log("init");
     this.encoded_search_text = this.route.snapshot.paramMap.get('search-text');
     let searchText = decodeURI(this.route.snapshot.paramMap.get('search-text'));
     this.search_text = searchText;
