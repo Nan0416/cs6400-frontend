@@ -20,6 +20,8 @@ export class LikeProductService {
   public likeProducts$ = this.likeProductsEvt_.asObservable();
   public likeProductsError$ = this.likeProductsErrorEvt_.asObservable();
 
+  public liked_product_asin:Set<string> = new Set();
+
   __notifyLikedProducts(){
     this.likeProductsEvt_.next();
   }
@@ -28,9 +30,15 @@ export class LikeProductService {
   }
 
   
-  likeProduct(asin: string, userid: string){
-    let product_url = `${server_addr}/recommendation/like-product?asin=${asin}&userid=${userid}`;
-    this.http.get(product_url, {withCredentials: true }).subscribe({
+  likeProduct(asin: string){
+    this.liked_product_asin.add(asin);
+  }
+  
+  startRecommend(userid: string, product_asins: string[]){
+    
+    let url = `${server_addr}/recommendation/product/recommend?userid=${userid}`;
+    console.log(url, product_asins)
+    this.http.post(url, {liked_products: product_asins}, {withCredentials: true }).subscribe({
       next: data=>{
         this.__notifyLikedProducts();
       },

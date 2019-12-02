@@ -31,7 +31,6 @@
     }
     .title{
         button{
-            background-color: #433a5a; /* Green */
             border: none;
             color: white;
             padding: 3px 32px;
@@ -51,5 +50,11 @@
         button:focus{
             outline: none;
         }
+    }
+    .deep-button-color{
+        background-color: #433a5a;
+    }
+    .light-button-color{
+        background-color: #8273a8;
     }
 }

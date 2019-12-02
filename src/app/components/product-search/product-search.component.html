@@ -1,4 +1,7 @@
 
+<div id="start-recommendation">
+    <button (click)="recommend()">Recommend!</button>
+</div>
 <div id="search-input-div">
     <input type="text" id="search" name="search" [placeholder]='search_text' #box (keyup.enter)="searchProducts(box.value)">
 </div>
@@ -10,3 +13,4 @@
         <button (click)="loadMore()">Load More</button>
     </div>
 </div>
+

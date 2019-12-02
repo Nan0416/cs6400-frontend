@@ -21,6 +21,7 @@ export class ProductThumbnailComponent implements OnInit {
   cursor: number = 0;
   product_image: string = null;
   has_more: string = "";
+  button_color_classname: string = "deep-button-color";
   convert_image_url(url){
     return url.split("._SS40_").join("");
   }
@@ -55,9 +56,10 @@ export class ProductThumbnailComponent implements OnInit {
   ngOnInit() {
   }
   liked(){
+    this.button_color_classname = "light-button-color";
     console.log(this.product);
     if(this.userAccount.user != null){
-      this.likedProductService.likeProduct(this.product.asin, this.userAccount.user.username);
+      this.likedProductService.likeProduct(this.product.asin);
     }else{
       // alert("Login first")
       this.router.navigateByUrl(`/login`);

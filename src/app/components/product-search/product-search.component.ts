@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from 'src/app/data-structure/Product';
 import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
+import { UserAccountService } from '../../services/user-account.service';
 import { LoadingProduct } from 'src/app/data-structure/LoadingProduct';
+import { LikeProductService } from '../../services/like-product.service';
+
 @Component({
   selector: 'app-product-search',
   templateUrl: './product-search.component.html',
@@ -21,7 +24,9 @@ export class ProductSearchComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private likedProductService: LikeProductService,
     private router: Router,
+    private userAccount: UserAccountService,
     private route: ActivatedRoute,
   ) { 
     this.request.page_size = 20;
@@ -63,6 +68,11 @@ export class ProductSearchComponent implements OnInit {
           this.init();
         }
     });
+    this.likedProductService.likeProducts$.subscribe({
+      next: ()=>{
+        this.router.navigateByUrl("/recommendation/result");
+      }
+    });
   }
 
   init(){
@@ -75,5 +85,25 @@ export class ProductSearchComponent implements OnInit {
     this.request.asins = [];
     this.products = [];
     this.productService.searchProducts(this.request); 
+  }
+
+  recommend(){
+    let liked_product_asin_set = this.likedProductService.liked_product_asin;
+    if(liked_product_asin_set.size < 5){
+      alert("Please select at least 5 product");
+      return;
+    }
+    if(this.userAccount.user == null){
+      this.router.navigateByUrl(`/login`);
+      return;
+    }
+    let asins:string[] = []
+    for(let asin of liked_product_asin_set){
+      asins.push(asin);
+    }
+    console.log(asins);
+    // let temp:string[] = ['B00012BVQ4', 'B0006281RG', 'B0009GZB3Q', 'B00006I5JT', 'B000A2TEWS'];
+    // let username: string = 'qin@gmail.com'
+    this.likedProductService.startRecommend(this.userAccount.user.username, asins);
   }
 }

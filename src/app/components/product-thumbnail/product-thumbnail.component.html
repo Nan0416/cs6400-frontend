@@ -4,7 +4,7 @@
         <p>{{has_more}}</p>
     </div>
     <div class="product-description">
-        <p class="title"><span>{{product.title}}</span> <button (click)="liked()">Like</button></p>
+        <p class="title"><span>{{product.title}}</span> <button (click)="liked()" [className]="button_color_classname">Like</button></p>
         <p style="font-size: 14px;"><span class="emp">Brand</span> {{product.brand}}</p>
         <p style="font-size: 14px;"><span class="emp">Category</span> {{product.main_cat}}</p>
         <p class="emp">Description</p>
