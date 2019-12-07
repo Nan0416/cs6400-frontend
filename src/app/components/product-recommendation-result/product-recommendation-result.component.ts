@@ -52,11 +52,11 @@ export class ProductRecommendationResultComponent implements OnInit {
 
   findRecommendation(session_id: string){
     // this.likedProductService.queryRecommendationResult("12", session_id);
-    /*if(this.userAccount.user == null){
+    if(this.userAccount.user == null){
       this.router.navigateByUrl(`/login`);
       return;
     }
-    this.likedProductService.queryRecommendationResult(this.userAccount.user.username, session_id);*/
-    this.likedProductService.queryRecommendationResult("hello", session_id);
+    this.likedProductService.queryRecommendationResult(this.userAccount.user.username, session_id);
+    // this.likedProductService.queryRecommendationResult("hello", session_id);
   }
 }
